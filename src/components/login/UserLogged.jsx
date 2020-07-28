@@ -18,9 +18,12 @@ const UserLogged = ({ user, onLogout }) => {
         />
       )}
       <span>{user.name}</span>
-      <a className="nav-item nav-link logout" onClick={logout}>
+      <button
+        className="nav-item nav-link btn btn-link logout"
+        onClick={logout}
+      >
         Logout
-      </a>
+      </button>
     </div>
   );
 };

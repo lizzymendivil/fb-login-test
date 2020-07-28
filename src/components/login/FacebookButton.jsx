@@ -31,11 +31,15 @@ const FacebookButton = ({ onLogin }) => {
   };
 
   return (
-    <div>
-      <a onClick={facebookLogin} className="login">
-        <span>Login</span>
-      </a>
-    </div>
+    <button onClick={facebookLogin} className="login">
+        Login
+      </button>
+    // <div>
+      
+    //   <a onClick={facebookLogin} className="login">
+    //     <span>Login</span>
+    //   </a>
+    // </div>
   );
 };
 
