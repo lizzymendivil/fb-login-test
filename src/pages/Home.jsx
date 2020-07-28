@@ -15,9 +15,7 @@ const Home = () => {
         Aliquam officiis quibusdam nisi veniam laudantium eligendi quidem
         corrupti hic.
       </p>
-      <a className="btn btn-primary btn-lg" href="#" role="button">
-        Start
-      </a>
+      <button className="btn btn-primary btn-lg">Start</button>
     </div>
   );
 };
