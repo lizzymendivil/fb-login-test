@@ -1,25 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import Home from "./pages/Home";
+import Footer from "./layout/Footer";
+import Navbar from "./layout/Navbar";
+import routes from "./routes";
 
 function App() {
+  const Loading = () => (
+    <div className="animated fadeIn pt-1 text-center">Loading...</div>
+  );
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <Suspense fallback={<Loading />}>
+        <div className="container-fluid mt5">
+          <Switch>
+            <Route exact path="/" component={Home} />
+            {routes.map((route) => (
+              <Route
+                key={route.path}
+                path={route.path}
+                component={route.component}
+              />
+            ))}
+          </Switch>
+        </div>
+      </Suspense>
+      <Footer />
+    </Router>
   );
 }
 
